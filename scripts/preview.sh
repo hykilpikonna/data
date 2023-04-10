@@ -10,4 +10,5 @@ tar -xf web.tgz --strip-components=1
 
 # Replace data host url to "/"
 sed -i 's/"https:\/\/data.one-among.us"/window.location.origin/g' ./**/*.js
-
+sed -i 's/<head>/<head><script type="text\/javascript" src="\/reload.js"><\/script>/g' ./*.html
+rm -rf profile p
