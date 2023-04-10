@@ -154,10 +154,17 @@ function copyPublic() {
   fs.copySync(path.join(projectRoot, PUBLIC_DIR), path.join(projectRoot, DIST_DIR));
 }
 
+function updateBuildTime() {
+  // Write build-time.txt with the current timestamp in milliseconds
+  const buildTime = Date.now().toString();
+  fs.writeFileSync(path.join(projectRoot, DIST_DIR, 'build-time.txt'), buildTime);
+}
+
 buildPeopleInfoAndList();
 buildPeoplePages();
 copyPeopleAssets();
 copyPublic();
+updateBuildTime();
 
 /**
  * Trim a specific char from a string
